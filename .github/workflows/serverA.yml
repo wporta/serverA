@@ -1,0 +1,11 @@
+name: Server A
+
+on:
+  workflow_call: 
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing
+        run: echo "Running from another repository"
