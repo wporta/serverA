@@ -1,11 +1,14 @@
 name: Server A
 
 on:
-  workflow_call: 
+  push: 
+    tags:
+      - '(v\d+\.\d+\.\d+|\d{8}-\d{4})'
     
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Testing
-        run: echo "Building Server A"
+        run: |
+          echo "Building Server A for tag: ${{ github.ref_name }}"
