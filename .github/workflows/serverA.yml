@@ -4,6 +4,7 @@ on:
   push: 
     tags:
       - 'v\d+(\.\d+){1,2}(\.\d+)?'
+      - 'v*'
     
 jobs:
   build:
