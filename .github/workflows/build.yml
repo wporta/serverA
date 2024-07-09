@@ -1,0 +1,21 @@
+name: Build Server A
+
+on:
+  workflow_call: 
+    inputs:
+      tag:
+        required: true
+        type: string
+
+jobs:
+
+  build:
+    name: Build Server A
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Building
+        run: |
+          echo "Building Server A for tag: ${{ inputs.tag }}"
+          sleep 2m
+          echo "Done building"

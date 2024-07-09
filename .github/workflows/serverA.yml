@@ -4,12 +4,11 @@ on:
   push: 
     tags:
       - 'v\d+(\.\d+){1,2}(\.\d+)?'
-      - 'v*'
+      #- 'v*'
     
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Testing
-        run: |
-          echo "Building Server A for tag: ${{ github.ref_name }}"
+    name: Building with tag push
+    uses: ./.github/workflows/build.yml
+    with:
+      tag: ${{ github.ref_name }}
