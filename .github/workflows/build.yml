@@ -14,6 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Pushing the new tag
+        run: |
+          git push origin ${{ inputs.tag }}
+
       - name: Building
         run: |
           echo "Building Server A for tag: ${{ inputs.tag }}"
