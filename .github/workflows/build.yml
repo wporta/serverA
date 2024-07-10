@@ -17,6 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug PAT
+        run: echo "${{ secrets.REPOA_PAT }}" | wc -c
+
       - name: Pushing the new tag
         env:
             REPOA_PAT: ${{ secrets.REPOA_PAT }}
