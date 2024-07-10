@@ -27,7 +27,7 @@ jobs:
         env:
             REPOA_PAT: ${{ secrets.REPOA_PAT }}
         run: |
-          git clone https://github.com/wporta/serverA.git
+          git clone https://wporta:${REPOA_PAT}@github.com/wporta/serverA.git
           cd serverA
           git tag ${{ inputs.tag }}
           git push https://wporta:${REPOA_PAT}@github.com/wporta/serverA.git --tags
