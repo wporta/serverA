@@ -6,9 +6,6 @@ on:
       tag:
         required: true
         type: string
-      repo_pat:
-        required: true
-        type: string
 
 jobs:
 
