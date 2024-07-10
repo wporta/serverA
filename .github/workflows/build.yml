@@ -20,17 +20,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Git
+      - name: Pushing the new tag
+        env:
+            REPOA_PAT: ${{ secrets.REPOA_PAT }}
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-
-
-      - name: Pushing the new tag
-        env:
-            #REPOA_PAT: ${{ secrets.REPOA_PAT }}
-            REPOA_PAT: ${{ inputs.repo_pat }}"
-        run: |
           git clone https://github.com/wporta/serverA.git
           cd serverA
           git tag ${{ inputs.tag }}
